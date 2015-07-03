@@ -1,0 +1,12 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+    - docker build -t circleci/scratch-test .
+
+test:
+  override:
+    - docker run circleci/scratch-test
